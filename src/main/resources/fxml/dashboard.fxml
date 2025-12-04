@@ -22,11 +22,11 @@
          <children>
             <AnchorPane fx:id="cardRevenue" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="174.0" layoutY="21.0" text="Dzisiejsze zarobki">
+                  <Label alignment="CENTER" layoutX="174.0" layoutY="21.0" text="Dzisiejsze zarobki" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <Label fx:id="lblRevenue" layoutX="241.0" layoutY="184.0">
+                  <Label fx:id="lblRevenue" alignment="CENTER" layoutX="17.0" layoutY="167.0" prefHeight="52.0" prefWidth="466.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -35,11 +35,11 @@
             </AnchorPane>
             <AnchorPane fx:id="cardReservations" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Label layoutX="138.0" layoutY="14.0" text="Liczba dzisiejszych rezerwacji">
+                  <Label alignment="CENTER" layoutX="138.0" layoutY="14.0" text="Liczba uwtorzonych dzisiaj rezerwacji" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <Label fx:id="lblReservations" layoutX="247.0" layoutY="184.0">
+                  <Label fx:id="lblReservations" alignment="CENTER" layoutX="50.0" layoutY="193.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -48,7 +48,7 @@
             </AnchorPane>
             <AnchorPane fx:id="cardOccupancy" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="130.0" layoutY="3.0" text="Procent zajętości hotelu na dziś">
+                  <Label alignment="CENTER" layoutX="130.0" layoutY="3.0" text="Procent zajętości hotelu na dziś" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -58,11 +58,14 @@
             </AnchorPane>
             <AnchorPane fx:id="cardGuests" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label layoutX="125.0" layoutY="3.0" text="Liczba dostępnych pokoii na dziś">
+                  <Label alignment="CENTER" layoutX="125.0" layoutY="3.0" text="Liczba dostępnych pokoii na dziś" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <Label fx:id="lblAvailableRooms" layoutX="247.0" layoutY="184.0" />
+                  <Label fx:id="lblAvailableRooms" alignment="CENTER" layoutX="50.0" layoutY="193.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
+                     <font>
+                        <Font size="36.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
          </children>

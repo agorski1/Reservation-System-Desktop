@@ -58,4 +58,26 @@ public class HttpClient {
         }
     }
 
+    public <T> T patch(String endpoint, Object requestBody, Class<T> responseClass) throws Exception {
+    URL url = new URL(baseUrl + endpoint);
+    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    con.setRequestMethod("PATCH");
+    con.setRequestProperty("Content-Type", "application/json");
+
+    if (token != null) {
+        con.setRequestProperty("Authorization", "Bearer " + token);
+    }
+
+    con.setDoOutput(true);
+
+    try (OutputStream os = con.getOutputStream()) {
+        objectMapper.writeValue(os, requestBody);
+    }
+
+    try (InputStream is = con.getInputStream()) {
+        return objectMapper.readValue(is, responseClass);
+    } catch (Exception e) {
+        return null;
+    }
+}
 }
