@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+            prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.LoginController">
+    <children>
+        <VBox alignment="CENTER" layoutX="410.0" layoutY="110.0" maxHeight="580.0" maxWidth="460.0" minHeight="580.0"
+              minWidth="460.0" prefHeight="580.0" prefWidth="460.0" spacing="30.0">
+            <padding>
+                <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+            </padding>
+            <children>
+                <Text fill="#2c3e50" strokeType="OUTSIDE" strokeWidth="0.0" text="Logowanie" textAlignment="CENTER"
+                      wrappingWidth="608.2269897460938">
+                    <font>
+                        <Font name="Roboto" size="38.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </Text>
+                <MFXTextField fx:id="txtLogin" prefHeight="50.0" prefWidth="360.0" promptText="Email">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                </MFXTextField>
+                <MFXPasswordField fx:id="txtPassword" prefHeight="50.0" prefWidth="360.0" promptText="Hasło"/>
+                <MFXButton fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" prefHeight="55.0"
+                           prefWidth="380.0" styleClass="mfx-button" text="ZALOGUJ SIĘ"/>
+                <Label fx:id="lblError" alignment="CENTER" prefHeight="58.0" prefWidth="380.0" styleClass="error-hidden" stylesheets="@/css/login.css">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
