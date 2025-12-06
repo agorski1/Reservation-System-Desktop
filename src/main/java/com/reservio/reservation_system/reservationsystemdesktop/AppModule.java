@@ -3,6 +3,7 @@ package com.reservio.reservation_system.reservationsystemdesktop;
 import com.google.inject.AbstractModule;
 import com.reservio.reservation_system.reservationsystemdesktop.service.AuthService;
 import com.reservio.reservation_system.reservationsystemdesktop.service.DashboardService;
+import com.reservio.reservation_system.reservationsystemdesktop.service.ReservationService;
 import com.reservio.reservation_system.reservationsystemdesktop.util.HttpClient;
 
 public class AppModule extends AbstractModule {
@@ -11,5 +12,6 @@ public class AppModule extends AbstractModule {
         bind(HttpClient.class).toInstance(new HttpClient("http://localhost:8080/hd")); // base URL
         bind(AuthService.class);
         bind(DashboardService.class);
+        bind(ReservationService.class);
     }
 }
