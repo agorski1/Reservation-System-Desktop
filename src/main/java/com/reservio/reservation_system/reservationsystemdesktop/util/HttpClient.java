@@ -3,7 +3,6 @@ package com.reservio.reservation_system.reservationsystemdesktop.util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -32,22 +31,51 @@ public class HttpClient {
 
     public <T> T post(String endpoint, Object requestBody, Class<T> responseClass) throws Exception {
         URL url = new URL(baseUrl + endpoint);
+        System.out.println("[DEBUG] POST URL: " + url);
+
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
 
         if (token != null) {
             con.setRequestProperty("Authorization", "Bearer " + token);
+            System.out.println("[DEBUG] Using token: " + token);
         }
 
         con.setDoOutput(true);
 
+        String jsonBody = objectMapper.writeValueAsString(requestBody);
+        System.out.println("[DEBUG] Request body: " + jsonBody);
+
         try (OutputStream os = con.getOutputStream()) {
-            objectMapper.writeValue(os, requestBody);
+            os.write(jsonBody.getBytes());
+            os.flush(); // upewniamy się, że body jest wysłane
         }
 
-        try (InputStream is = con.getInputStream()) {
-            return objectMapper.readValue(is, responseClass);
+        int code = con.getResponseCode();
+        System.out.println("[DEBUG] Response code: " + code);
+
+        if (responseClass == Void.class) {
+            System.out.println("[DEBUG] Void response, returning null");
+            return null;
+        }
+
+        InputStream is = (code >= 200 && code < 300) ? con.getInputStream() : con.getErrorStream();
+        if (is == null) {
+            System.out.println("[DEBUG] InputStream is null");
+            return null;
+        }
+
+        try (is) {
+            byte[] bytes = is.readAllBytes();
+            String responseText = new String(bytes);
+            System.out.println("[DEBUG] Response body: " + responseText);
+
+            if (responseText.isBlank()) {
+                return null;
+            }
+
+            return objectMapper.readValue(responseText, responseClass);
         }
     }
 

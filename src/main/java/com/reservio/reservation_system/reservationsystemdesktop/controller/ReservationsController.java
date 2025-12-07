@@ -80,39 +80,52 @@ public class ReservationsController implements Initializable {
         statusCol.setRowCellFactory(r -> new MFXTableRowCell<>(ReservationDesktopDto::statusPolish));
 
         var actionsCol = new MFXTableColumn<ReservationDesktopDto>("Akcje", true);
-        actionsCol.setRowCellFactory(dto -> {
+        actionsCol.setRowCellFactory(dto -> new MFXTableRowCell<ReservationDesktopDto, String>(r -> "") {
+            {
+                Label confirm = new Label("[✓]");
+                Label reject = new Label("[X]");
+                Label view = new Label("[>]");
 
-            return new MFXTableRowCell<ReservationDesktopDto, String>(r -> "") { // ← WARTOŚĆ PUSTA
-                {
-                    Label confirm = new Label("[✓]");
-                    Label reject = new Label("[X]");
-                    Label view = new Label("[>]");
+                String style = "-fx-font-size: 18; -fx-cursor: hand; -fx-padding: 0 8 0 8;";
 
-                    String style = "-fx-font-size: 18; -fx-cursor: hand; -fx-padding: 0 8 0 8;";
+                confirm.setStyle(style + "-fx-text-fill: green;");
+                reject.setStyle(style + "-fx-text-fill: red;");
+                view.setStyle(style + "-fx-text-fill: blue;");
 
-                    confirm.setStyle(style + "-fx-text-fill: green;");
-                    reject.setStyle(style + "-fx-text-fill: red;");
-                    view.setStyle(style + "-fx-text-fill: blue;");
-
-                    confirm.setOnMouseClicked(e -> {
+                confirm.setOnMouseClicked(e -> {
+                    try {
                         reservationService.updateReservationStatus(dto.id(), "Confirmed");
-                        loadReservations();
-                    });
 
-                    reject.setOnMouseClicked(e -> {
+                        reservationsTable.getItems().remove(dto);
+
+                        if (reservationsTable.getItems().isEmpty()) {
+                            reservationsTable.getItems().setAll(List.of());
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                });
+
+                reject.setOnMouseClicked(e -> {
+                    try {
                         reservationService.updateReservationStatus(dto.id(), "Rejected");
-                        loadReservations();
-                    });
+                        reservationsTable.getItems().remove(dto);
+                        if (reservationsTable.getItems().isEmpty()) {
+                            reservationsTable.getItems().setAll(List.of());
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                });
 
-                    view.setOnMouseClicked(e -> openReservationDetails(dto.id()));
+                view.setOnMouseClicked(e -> openReservationDetails(dto.id()));
 
-                    HBox box = new HBox(8, confirm, reject, view);
-                    box.setAlignment(Pos.CENTER);
+                HBox box = new HBox(8, confirm, reject, view);
+                box.setAlignment(Pos.CENTER);
 
-                    setGraphic(box);
-                    setText(null);
-                }
-            };
+                setGraphic(box);
+                setText(null);
+            }
         });
 
         reservationsTable.getTableColumns().addAll(

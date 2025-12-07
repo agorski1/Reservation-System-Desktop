@@ -1,6 +1,7 @@
 package com.reservio.reservation_system.reservationsystemdesktop.service;
 
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ReservationDto; // <-- ten z backendu
+import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.UpdateStatusRequestDto;
 import com.reservio.reservation_system.reservationsystemdesktop.util.HttpClient;
 import jakarta.inject.Inject;
 
@@ -43,10 +44,17 @@ public class ReservationService {
 
     public void updateReservationStatus(long reservationId, String newStatus) {
         try {
-            var body = new Object() { public final String status = newStatus; };
-            httpClient.patch("/reservations/" + reservationId + "/status", body, Void.class);
+            String url = "/reservations/" + reservationId + "/status";
+
+            UpdateStatusRequestDto dto = new UpdateStatusRequestDto(newStatus);
+            System.out.println("Sending JSON manually: {\"status\":\"" + newStatus + "\"}");
+
+            httpClient.post(url, dto, Void.class);
+
+            System.out.println("Sent updateStatus request: reservationId=" + reservationId + ", newStatus=" + dto.status());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
