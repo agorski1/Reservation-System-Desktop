@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.RoomTypesController">
+   <children>
+      <MFXButton fx:id="btnSave" layoutX="762.0" layoutY="686.0" prefHeight="50.0" prefWidth="200.0" text="Zapisz" />
+      <Label layoutX="20.0" prefHeight="55.0" prefWidth="191.0" text="Typy pokoi">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <MFXTableView fx:id="roomTypesTable" layoutX="16.0" layoutY="53.0" prefHeight="691.0" prefWidth="863.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0" />
+   </children>
+</AnchorPane>

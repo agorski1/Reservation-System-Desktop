@@ -1,5 +1,6 @@
 package com.reservio.reservation_system.reservationsystemdesktop.service;
 
+import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ManualReservationRequestDto;
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ReservationDto; // <-- ten z backendu
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.UpdateStatusRequestDto;
 import com.reservio.reservation_system.reservationsystemdesktop.util.HttpClient;
@@ -57,4 +58,21 @@ public class ReservationService {
         }
     }
 
+    public ReservationDto getReservationById(long id) {
+        try {
+            return httpClient.get("/reservations/employee/" + id, ReservationDto.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public void createManualReservation(ManualReservationRequestDto dto) {
+        try {
+            httpClient.post("/reservations/manual", dto, Void.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Nie udało się utworzyć rezerwacji", e);
+        }
+    }
 }

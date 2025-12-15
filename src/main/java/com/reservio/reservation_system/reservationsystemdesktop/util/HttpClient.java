@@ -14,10 +14,6 @@ public class HttpClient {
     private final ObjectMapper objectMapper;
     private String token;
 
-//    public HttpClient(String baseUrl) {
-//        this.baseUrl = baseUrl;
-//        this.objectMapper = new ObjectMapper();
-//    }
     public HttpClient(String baseUrl) {
     this.baseUrl = baseUrl;
     this.objectMapper = new ObjectMapper()
@@ -49,7 +45,7 @@ public class HttpClient {
 
         try (OutputStream os = con.getOutputStream()) {
             os.write(jsonBody.getBytes());
-            os.flush(); // upewniamy się, że body jest wysłane
+            os.flush();
         }
 
         int code = con.getResponseCode();

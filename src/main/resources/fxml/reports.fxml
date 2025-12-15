@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane fx:id="rootContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.ReportsController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="1003.0" text="RAPORTY">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <HBox fx:id="datePickerContainer" alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="980.0" spacing="20.0">
+               <children>
+                  <Label text="OD:" />
+                  <MFXDatePicker fx:id="dateFrom" prefHeight="40.0" prefWidth="200.0" />
+                  <Label text="DO:" />
+                  <MFXDatePicker fx:id="dateTo" prefHeight="40.0" prefWidth="200.0" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <VBox fx:id="reportsContainer" prefHeight="632.0" prefWidth="980.0">
+               <children>
+                  <BorderPane fx:id="cardOccupancy" prefHeight="315.0" prefWidth="200.0">
+                     <top>
+                        <Label text="📊 Raport obłożenia" BorderPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <left>
+                        <Label prefHeight="29.0" prefWidth="980.0" text="Statystyki zajętości pokoi w wybranym okresie  " BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </left>
+                     <bottom>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
+                           <children>
+                              <MFXButton fx:id="btnPreviewOccupancy" minHeight="50.0" prefWidth="200.0" text="Podgląd">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </MFXButton>
+                              <MFXButton fx:id="btnGeneratePDFOccupancy" alignment="CENTER" contentDisplay="TOP" prefHeight="50.0" prefWidth="200.0" text="Generuj PDF">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </MFXButton>
+                           </children>
+                        </HBox>
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="cardPayments" prefHeight="315.0" prefWidth="200.0">
+                     <top>
+                        <Label text="💰  Raport płatności     " BorderPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <left>
+                        <Label text="Zestawienie przychodów i płatności gości" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </left>
+                     <bottom>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="101.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <MFXButton fx:id="btnPreviewPayments" prefHeight="51.0" prefWidth="200.0" text="Podgląd">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </MFXButton>
+                              <MFXButton fx:id="btnGeneratePDFPayments" prefHeight="51.0" prefWidth="200.0" text="Generuj PDF">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </MFXButton>
+                           </children>
+                        </HBox>
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

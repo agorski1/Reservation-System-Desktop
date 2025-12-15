@@ -20,7 +20,7 @@
                   <Insets bottom="40.0" left="25.0" />
                </padding>
             </Label>
-            <MFXButton fx:id="btnDashboard" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Dashboard" textFill="WHITE">
+            <MFXButton fx:id="btnDashboard" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Dashboard">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -28,24 +28,29 @@
                   <Font name="Roboto" size="13.0" />
                </font>
             </MFXButton>
-            <MFXButton fx:id="btnRooms" alignment="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Pokoje" textFill="WHITE">
+            <MFXButton fx:id="btnRooms" alignment="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Pokoje">
                <font>
                   <Font name="Roboto" size="13.0" />
                </font>
             </MFXButton>
-            <MFXButton fx:id="btnReservations" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Rezerwacje" textAlignment="CENTER" textFill="WHITE">
+            <MFXButton fx:id="btnReservations" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Rezerwacje" textAlignment="CENTER">
                <font>
                   <Font name="Roboto" size="13.0" />
                </font></MFXButton>
-            <MFXButton fx:id="btnReports" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Raporty" textFill="WHITE">
+            <MFXButton fx:id="btnReports" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Raporty">
                <font>
                   <Font name="Roboto" size="13.0" />
                </font></MFXButton>
-            <MFXButton fx:id="btnSettings" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Ustawienia" textFill="WHITE">
+            <MFXButton fx:id="btnUsers" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Użytkownicy">
                <font>
                   <Font name="Roboto" size="13.0" />
                </font></MFXButton>
-            <MFXButton fx:id="btnLogout" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Wyloguj" textAlignment="CENTER" textFill="WHITE">
+            <MFXButton fx:id="btnRoomTypes" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Typy pokoi">
+               <font>
+                  <Font name="Roboto" size="13.0" />
+               </font>
+            </MFXButton>
+            <MFXButton fx:id="btnLogout" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Wyloguj" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="180.0" />
                </VBox.margin>

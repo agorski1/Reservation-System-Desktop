@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 public class SceneManager {
 
@@ -47,6 +48,23 @@ public class SceneManager {
             System.err.println("Nie znaleziono #contentArea! Czy main.fxml ma fx:id=\"contentArea\" na BorderPane?");
         }
     }
+
+    public static void loadView(String fxmlPath, Consumer<Object> controllerConsumer) throws IOException { FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
+    loader.setControllerFactory(AppInjector.getInjector()::getInstance);
+    Parent view = loader.load();
+
+    if (controllerConsumer != null) {
+        Object controller = loader.getController();
+        controllerConsumer.accept(controller);
+    }
+
+    BorderPane contentArea = (BorderPane) scene.getRoot().lookup("#contentArea");
+    if (contentArea != null) {
+        contentArea.setCenter(view);
+    } else {
+        System.err.println("Nie znaleziono #contentArea! Czy main.fxml ma fx:id=\"contentArea\" na BorderPane?");
+    }
+}
 
     public static Stage getStage() { return stage; }
     public static Scene getScene() { return scene; }

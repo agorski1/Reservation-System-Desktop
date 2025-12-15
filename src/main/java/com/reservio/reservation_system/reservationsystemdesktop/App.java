@@ -13,8 +13,8 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
 
 
-        Font.loadFont(App.class.getResourceAsStream("/fonts/Roboto-VariableFont_wdth,wght.ttf"), 12);
-        Font.loadFont(App.class.getResourceAsStream("/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf"), 12);
+//        Font.loadFont(App.class.getResourceAsStream("/fonts/Roboto-VariableFont_wdth,wght.ttf"), 12);
+//        Font.loadFont(App.class.getResourceAsStream("/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf"), 12);
 
         UserAgentBuilder.builder()
                 .themes(JavaFXThemes.MODENA)
@@ -27,9 +27,9 @@ public class App extends Application {
         SceneManager.setStage(stage);
         SceneManager.switchScene("/fxml/login.fxml");
 
-        SceneManager.getScene().getStylesheets().add(
-                App.class.getResource("/css/theme.css").toExternalForm()
-        );
+//        SceneManager.getScene().getStylesheets().add(
+//                App.class.getResource("/css/theme.css").toExternalForm()
+//        );
 
         stage.setTitle("Hotel Reservation System");
         stage.setMinWidth(1100);

@@ -34,4 +34,8 @@ public class Auth {
             return null;
         }
     }
+
+    public static boolean isAdmin() {
+        return "ADMIN".equals(getRole());
+    }
 }

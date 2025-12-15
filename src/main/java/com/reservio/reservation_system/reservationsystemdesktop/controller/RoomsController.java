@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
 import java.net.URL;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

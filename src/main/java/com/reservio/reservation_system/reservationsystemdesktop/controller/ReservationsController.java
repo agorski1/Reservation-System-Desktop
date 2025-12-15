@@ -4,6 +4,7 @@ import com.reservio.reservation_system.reservationsystemdesktop.model.reservatio
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ReservationDto;
 import com.reservio.reservation_system.reservationsystemdesktop.service.ReservationService;
 import com.reservio.reservation_system.reservationsystemdesktop.util.ReservationStatusTranslator;
+import com.reservio.reservation_system.reservationsystemdesktop.util.SceneManager;
 import io.github.palexdev.materialfx.controls.*;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import jakarta.inject.Inject;
@@ -15,6 +16,7 @@ import javafx.scene.layout.HBox;
 
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -150,14 +152,12 @@ public class ReservationsController implements Initializable {
                     }
                 }
 
-                // Daty – cały dzień
                 LocalDate fromDate = dateFrom.getValue();
                 LocalDate toDate = dateTo.getValue();
 
                 LocalDateTime fromDt = fromDate != null ? fromDate.atStartOfDay() : null;
                 LocalDateTime toDt = toDate != null ? toDate.atTime(23, 59, 59, 999999999) : null;
 
-                // Pobranie danych
                 List<ReservationDto> list = reservationService.getReservations(
                         btnShowCompleted.isSelected(),
                         fromDt,
@@ -166,7 +166,6 @@ public class ReservationsController implements Initializable {
                         email
                 );
 
-                // Mapowanie i wyświetlenie
                 var display = list.stream()
                         .map(r -> new ReservationDesktopDto(
                                 r.id(),
@@ -191,10 +190,26 @@ public class ReservationsController implements Initializable {
     }
 
     private void openCreateReservationScene() {
-        System.out.println("Otwieram tworzenie nowej rezerwacji...");
+        try {
+            SceneManager.loadView("/fxml/newReservation.fxml", controller -> {
+                if (controller instanceof com.reservio.reservation_system.reservationsystemdesktop.controller.NewReservationController newResController) {
+                    System.out.println("NewReservationController załadowany poprawnie!");
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void openReservationDetails(long id) {
-        System.out.println("Otwieram szczegóły rezerwacji ID = " + id);
+        try {
+            SceneManager.loadView("/fxml/reservationDetails.fxml", controller -> {
+                if (controller instanceof ReservationDetailsController detailsController) {
+                    detailsController.loadReservation(id);
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
