@@ -4,9 +4,9 @@
 <?import io.github.palexdev.materialfx.controls.MFXTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.RoomsController">
+<AnchorPane fx:id="roomsRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.RoomsController" stylesheets="@/css/rooms.css">
    <children>
-      <MFXTableView fx:id="roomsTable" layoutX="27.0" layoutY="40.0" prefHeight="691.0" prefWidth="863.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" />
-      <MFXButton fx:id="btnSaveStatuses" layoutX="743.0" layoutY="687.0" prefHeight="48.0" prefWidth="154.0" text="Zapisz" />
+      <MFXTableView fx:id="roomsTable" layoutX="27.0" layoutY="40.0" prefHeight="691.0" prefWidth="863.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0" styleClass="main-table"/>
+      <MFXButton fx:id="btnSaveStatuses" layoutX="743.0" layoutY="687.0" prefHeight="48.0" prefWidth="154.0" text="Zapisz" styleClass="primary-btn"/>
    </children>
 </AnchorPane>

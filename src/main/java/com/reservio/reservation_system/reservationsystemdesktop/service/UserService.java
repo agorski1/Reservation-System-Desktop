@@ -5,9 +5,12 @@ import com.reservio.reservation_system.reservationsystemdesktop.model.user.Emplo
 import com.reservio.reservation_system.reservationsystemdesktop.util.HttpClient;
 import jakarta.inject.Inject;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class UserService {
+
+    private static final String BASE_PATH = "/users";
 
     private final HttpClient httpClient;
 
@@ -18,26 +21,54 @@ public class UserService {
 
     public List<EmployeeDto> getAllEmployees() {
         try {
-            return List.of(httpClient.get("/users/employees", EmployeeDto[].class));
+            EmployeeDto[] employees = httpClient.get(BASE_PATH + "/employees", EmployeeDto[].class);
+            return Arrays.asList(employees);
         } catch (Exception e) {
             e.printStackTrace();
             return List.of();
         }
     }
 
+    public void updateUserByAdmin(EmployeeDto updateDto) {
+        try {
+            if (updateDto.id() == null) {
+                throw new IllegalArgumentException("User ID cannot be null when updating user");
+            }
+
+            httpClient.post(BASE_PATH + "/update", updateDto, Void.class);
+            System.out.println("User updated successfully: ID=" + updateDto.id());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Nie udało się zaktualizować użytkownika o ID " + updateDto.id(), e);
+        }
+    }
+
     public void changeUserPasswordByAdmin(Long userId, String newPassword) {
         try {
-            String url = "/users/" + userId + "/password";
+            if (userId == null) {
+                throw new IllegalArgumentException("User ID cannot be null");
+            }
+            if (newPassword == null || newPassword.isBlank()) {
+                throw new IllegalArgumentException("New password cannot be empty");
+            }
 
-            AdminPasswordChangeDto dto = new AdminPasswordChangeDto(newPassword);
-            System.out.println("Sending JSON manually: {\"newPassword\":\"" + newPassword + "\"}");
+            AdminPasswordChangeDto dto = new AdminPasswordChangeDto(userId, newPassword);
 
-            httpClient.patch(url, dto, Void.class);
+            httpClient.post(BASE_PATH + "/password/change", dto, Void.class);
+            System.out.println("Password changed successfully for user ID=" + userId);
 
-            System.out.println("Sent changePasswordByAdmin request: userId=" + userId);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Nie udało się zmienić hasła użytkownika o ID " + userId, e);
+        }
+    }
+
+    public void createUserByAdmin(EmployeeDto newUserDto) {
+        try {
+            httpClient.post(BASE_PATH + "/create/employee", newUserDto, Void.class);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

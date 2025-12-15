@@ -111,7 +111,7 @@ public class ReservationDetailsController {
     /* ------------------------- GO BACK ------------------------- */
     private void goBack() {
         try {
-            SceneManager.loadView("/fxml/reservations.fxml");
+            SceneManager.loadIntoMainContent("/fxml/reservations.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,84 +1,70 @@
-* {
-    -fx-font-family: "Roboto";
-}
+/* =====================
+   ROOT / GLOBAL
+   ===================== */
 
 .root {
-    -mfx-primary:   #1976d2;
-    -mfx-secondary: #dc004e;
-    -mfx-light:     #f8f9fa;
-    -mfx-surface:   #ffffff;
-    -mfx-text:      #212529;
-
-    -fx-background-color: -mfx-light;
-    -fx-text-fill: -mfx-text;
+    -fx-font-family: "Roboto";
+    -fx-background-color: #F5F6FA;
 }
 
-.label, .mfx-label {
-    -fx-text-fill: -mfx-text;
+/* =====================
+   SIDEBAR
+   ===================== */
+
+#sidebar {
+    -fx-background-color: #1E1E2F;
+    -fx-background-radius: 0 18 18 0;
 }
 
-.mfx-button {
-    -fx-background-color: -mfx-primary;
-    -fx-text-fill: white;
+/* Tytuł aplikacji */
+#sidebar Label {
+    -fx-text-fill: #FFFFFF;
+}
+
+/* =====================
+   SIDEBAR BUTTONS
+   ===================== */
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D1D1E0;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+}
+
+/* Hover */
+.sidebar-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Focus / active */
+.sidebar-btn:focused,
+.sidebar-btn:pressed {
+    -fx-background-color: #4E73DF;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* =====================
+   CONTENT AREA
+   ===================== */
+
+#contentArea {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0, 0, 5);
+}
+
+/* =====================
+   SCROLLBARS (opcjonalnie)
+   ===================== */
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #C4C4D6;
     -fx-background-radius: 6;
-    -fx-padding: 8 18;
-}
-
-.mfx-button:hover {
-    -fx-background-color: derive(-mfx-primary, -10%);
-}
-
-.mfx-button.text {
-    -fx-background-color: transparent;
-    -fx-text-fill: -mfx-primary;
-}
-
-.mfx-button.text:hover {
-    -fx-background-color: rgba(25, 118, 210, 0.08);
-}
-
-.mfx-button.outlined {
-    -fx-background-color: transparent;
-    -fx-border-color: -mfx-primary;
-    -fx-border-width: 1;
-    -fx-text-fill: -mfx-primary;
-}
-
-.mfx-button.outlined:hover {
-    -fx-background-color: rgba(25,118,210,0.04);
-}
-
-
-.mfx-text-field {
-    -fx-background-color: -mfx-surface;
-    -fx-border-color: #ced4da;
-    -fx-text-fill: -mfx-text;
-}
-
-.mfx-text-field:focused {
-    -fx-border-color: -mfx-primary;
-}
-
-
-.card {
-    -fx-background-color: -mfx-surface;
-    -fx-padding: 16;
-    -fx-background-radius: 8;
-    -fx-border-color: #e0e0e0;
-    -fx-border-radius: 8;
-}
-
-.sidebar {
-    -fx-background-color: -mfx-surface;
-    -fx-border-color: #dee2e6;
-    -fx-border-width: 0 1 0 0;
-}
-
-.sidebar .mfx-button {
-    -fx-background-color: transparent;
-    -fx-text-fill: -mfx-text;
-}
-
-.sidebar .mfx-button:hover {
-    -fx-background-color: #e9ecef;
 }

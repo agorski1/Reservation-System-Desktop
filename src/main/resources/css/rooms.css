@@ -1,0 +1,52 @@
+/* =====================
+   ROOT
+   ===================== */
+#roomsRoot {
+    -fx-background-color: transparent;
+    -fx-padding: 15;
+}
+
+/* =====================
+   TABLEVIEW
+   ===================== */
+#roomsRoot .main-table {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 12;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 10;
+}
+
+/* Nagłówki tabeli */
+#roomsRoot .main-table .column-header {
+    -fx-background-color: #F8F9FC;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A4A68;
+}
+
+/* Wiersze tabeli */
+#roomsRoot .main-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+}
+
+#roomsRoot .main-table .table-row-cell:odd {
+    -fx-background-color: #F4F5F7;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+#roomsRoot .primary-btn {
+    -fx-background-color: #4E73DF;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 8 20 8 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+#roomsRoot .primary-btn:hover {
+    -fx-background-color: #2E59D9;
+}

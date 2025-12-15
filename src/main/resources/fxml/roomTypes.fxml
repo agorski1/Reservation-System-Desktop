@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.RoomTypesController">
+<AnchorPane maxHeight="770.0" maxWidth="990.0" minHeight="770.0" minWidth="990.0" prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.RoomTypesController">
    <children>
       <MFXButton fx:id="btnSave" layoutX="762.0" layoutY="686.0" prefHeight="50.0" prefWidth="200.0" text="Zapisz" />
       <Label layoutX="20.0" prefHeight="55.0" prefWidth="191.0" text="Typy pokoi">

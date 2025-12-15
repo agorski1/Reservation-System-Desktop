@@ -191,9 +191,10 @@ public class ReservationsController implements Initializable {
 
     private void openCreateReservationScene() {
         try {
-            SceneManager.loadView("/fxml/newReservation.fxml", controller -> {
+            SceneManager.loadIntoMainContent("/fxml/newReservation.fxml", controller -> {
                 if (controller instanceof com.reservio.reservation_system.reservationsystemdesktop.controller.NewReservationController newResController) {
                     System.out.println("NewReservationController załadowany poprawnie!");
+                    // Tu możesz wywołać jakieś metody inizjalizujące, np. newResController.initData(...);
                 }
             });
         } catch (IOException e) {
@@ -203,7 +204,7 @@ public class ReservationsController implements Initializable {
 
     private void openReservationDetails(long id) {
         try {
-            SceneManager.loadView("/fxml/reservationDetails.fxml", controller -> {
+            SceneManager.loadIntoMainContent("/fxml/reservationDetails.fxml", controller -> {
                 if (controller instanceof ReservationDetailsController detailsController) {
                     detailsController.loadReservation(id);
                 }

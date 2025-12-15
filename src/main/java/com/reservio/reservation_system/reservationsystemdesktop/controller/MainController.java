@@ -39,8 +39,8 @@ public class MainController {
             btnUsers.setVisible(false);
             btnUsers.setManaged(false);
 
-            btnUsers.setVisible(false);
-            btnUsers.setManaged(false);
+            btnRoomTypes.setVisible(false);
+            btnRoomTypes.setManaged(false);
         }
 
         btnDashboard.setOnAction(e -> loadView("/fxml/dashboard.fxml"));
@@ -52,6 +52,7 @@ public class MainController {
 
         btnLogout.setOnAction(e -> logout());
 
+        SceneManager.setMainContentArea(contentArea);
         loadView("/fxml/dashboard.fxml");
     }
 
