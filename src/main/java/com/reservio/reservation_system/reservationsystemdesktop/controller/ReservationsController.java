@@ -81,58 +81,11 @@ public class ReservationsController implements Initializable {
         var statusCol = new MFXTableColumn<ReservationDesktopDto>("Status", true);
         statusCol.setRowCellFactory(r -> new MFXTableRowCell<>(ReservationDesktopDto::statusPolish));
 
+        // Tymczasowo dodajemy pustą kolumnę akcji – zaraz będziemy ją nadpisywać
         var actionsCol = new MFXTableColumn<ReservationDesktopDto>("Akcje", true);
-        actionsCol.setRowCellFactory(dto -> new MFXTableRowCell<ReservationDesktopDto, String>(r -> "") {
-            {
-                Label confirm = new Label("[✓]");
-                Label reject = new Label("[X]");
-                Label view = new Label("[>]");
+        actionsCol.setPrefWidth(120); // opcjonalnie stała szerokość
 
-                String style = "-fx-font-size: 18; -fx-cursor: hand; -fx-padding: 0 8 0 8;";
-
-                confirm.setStyle(style + "-fx-text-fill: green;");
-                reject.setStyle(style + "-fx-text-fill: red;");
-                view.setStyle(style + "-fx-text-fill: blue;");
-
-                confirm.setOnMouseClicked(e -> {
-                    try {
-                        reservationService.updateReservationStatus(dto.id(), "Confirmed");
-
-                        reservationsTable.getItems().remove(dto);
-
-                        if (reservationsTable.getItems().isEmpty()) {
-                            reservationsTable.getItems().setAll(List.of());
-                        }
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                });
-
-                reject.setOnMouseClicked(e -> {
-                    try {
-                        reservationService.updateReservationStatus(dto.id(), "Rejected");
-                        reservationsTable.getItems().remove(dto);
-                        if (reservationsTable.getItems().isEmpty()) {
-                            reservationsTable.getItems().setAll(List.of());
-                        }
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                });
-
-                view.setOnMouseClicked(e -> openReservationDetails(dto.id()));
-
-                HBox box = new HBox(8, confirm, reject, view);
-                box.setAlignment(Pos.CENTER);
-
-                setGraphic(box);
-                setText(null);
-            }
-        });
-
-        reservationsTable.getTableColumns().addAll(
-                clientCol, inCol, outCol, statusCol, actionsCol
-        );
+        reservationsTable.getTableColumns().addAll(clientCol, inCol, outCol, statusCol, actionsCol);
     }
 
     private void loadReservations() {
@@ -181,6 +134,7 @@ public class ReservationsController implements Initializable {
                         ))
                         .toList();
 
+                updateActionsColumn();
                 reservationsTable.getItems().setAll(display);
 
             } catch (Exception e) {
@@ -212,5 +166,61 @@ public class ReservationsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void updateActionsColumn() {
+        // Znajdujemy ostatnią kolumnę (Akcje) – zakładamy, że jest na pozycji 4
+        var actionsCol = (MFXTableColumn<ReservationDesktopDto>) reservationsTable.getTableColumns().get(4);
+
+        actionsCol.setRowCellFactory(dto -> new MFXTableRowCell<ReservationDesktopDto, String>(r -> "") {
+            {
+                HBox box = new HBox(8);
+                box.setAlignment(Pos.CENTER);
+
+                // Zawsze przycisk szczegółów
+                Label view = new Label("[>]");
+                String baseStyle = "-fx-font-size: 18; -fx-cursor: hand; -fx-padding: 0 8 0 8;";
+                view.setStyle(baseStyle + "-fx-text-fill: blue;");
+                view.setOnMouseClicked(e -> openReservationDetails(dto.id()));
+                box.getChildren().add(view);
+
+                // Pokazujemy ✓ i ✗ TYLKO gdy toggle jest WYŁĄCZONY (nie pokazujemy zakończonych)
+                if (!btnShowCompleted.isSelected()) {
+                    Label confirm = new Label("[✓]");
+                    Label reject = new Label("[X]");
+
+                    confirm.setStyle(baseStyle + "-fx-text-fill: green;");
+                    reject.setStyle(baseStyle + "-fx-text-fill: red;");
+
+                    confirm.setOnMouseClicked(e -> {
+                        try {
+                            reservationService.updateReservationStatus(dto.id(), "Confirmed");
+                            loadReservations(); // odświeżamy całą listę po zmianie
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    });
+
+                    reject.setOnMouseClicked(e -> {
+                        try {
+                            reservationService.updateReservationStatus(dto.id(), "Rejected");
+                            loadReservations(); // odświeżamy
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    });
+
+                    box.getChildren().add(0, reject);
+                    box.getChildren().add(0, confirm);
+                }
+
+                setGraphic(box);
+                setText(null);
+            }
+        });
+
+        // Ważne: odświeżamy widok tabeli, żeby nowe komórki się wyrenderowały
+
+reservationsTable.getItems().setAll(reservationsTable.getItems());
     }
 }
