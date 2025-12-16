@@ -1,35 +1,35 @@
 /* ROOT */
 #reservationsRoot {
-    -fx-background-color: transparent;
-    -fx-padding: 15;
+    -fx-background-color: #F5F7FA;
+    -fx-padding: 20;
 }
 
 /* =====================
    TABLEVIEW (MFXTableView)
    ===================== */
-#reservationsRoot .main-table.mfx-table {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 12;
-    -fx-border-color: #E0E0E0;
-    -fx-border-radius: 12;
-    -fx-padding: 10;
-}
+/*#reservationsRoot .main-table.mfx-table {*/
+/*    -fx-background-color: #FFFFFF;*/
+/*    -fx-background-radius: 12;*/
+/*    -fx-border-color: #E0E0E0;*/
+/*    -fx-border-radius: 12;*/
+/*    -fx-padding: 10;*/
+/*}*/
 
-/* Nagłówki kolumn */
-#reservationsRoot .main-table .mfx-column-header {
-    -fx-background-color: #F8F9FC;
-    -fx-font-weight: bold;
-    -fx-text-fill: #4A4A68;
-}
+/*!* Nagłówki kolumn *!*/
+/*#reservationsRoot .main-table .mfx-column-header {*/
+/*    -fx-background-color: #F8F9FC;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-text-fill: #4A4A68;*/
+/*}*/
 
-/* Wiersze tabeli */
-#reservationsRoot .main-table .mfx-table-row-cell {
-    -fx-background-color: #FFFFFF;
-}
+/*!* Wiersze tabeli *!*/
+/*#reservationsRoot .main-table .mfx-table-row-cell {*/
+/*    -fx-background-color: #FFFFFF;*/
+/*}*/
 
-#reservationsRoot .main-table .mfx-table-row-cell:odd {
-    -fx-background-color: #F4F5F7;
-}
+/*#reservationsRoot .main-table .mfx-table-row-cell:odd {*/
+/*    -fx-background-color: #F4F5F7;*/
+/*}*/
 
 /* =====================
    DATEPICKER

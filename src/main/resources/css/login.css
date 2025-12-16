@@ -1,27 +1,60 @@
-.error-hidden {
-    -fx-text-fill: transparent;
-    -fx-background-color: transparent;
+/* =====================
+   ROOT
+   ===================== */
+#loginRoot {
+    -fx-background-color: #F5F7FA;
 }
 
-.error-visible {
-    -fx-text-fill: #d32f2f;
+/* =====================
+   TITLE
+   ===================== */
+#loginRoot #txtLogowanie {
+    -fx-fill: #2E2E3A;
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
-
-    -fx-background-color: #ffebee;
-    -fx-background-radius: 8;
-    -fx-border-color: #ffcdd2;
-    -fx-border-radius: 8;
-    -fx-border-width: 1;
-
-    -fx-padding: 12 16 12 40;
-
-    -fx-effect: dropshadow(gaussian, rgba(211, 47, 47, 0.25), 10, 0, 0, 3);
 }
 
-.error-visible::before {
-    -fx-content: "!";
-    -fx-font-family: "Segoe UI Bold";
-    -fx-font-size: 18px;
-    -fx-text-fill: #d32f2f;
+/* =====================
+   TEXTFIELDS
+   ===================== */
+#loginRoot .mfx-text-field,
+#loginRoot .mfx-password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 12;
+    -fx-padding: 10 15 10 15;
+    -fx-font-size: 15px;
+}
+
+/* =====================
+   BUTTON
+   ===================== */
+#loginRoot .mfx-button {
+    -fx-background-color: #4E73DF;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-font-size: 16px;
+    -fx-padding: 12 20 12 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);
+}
+
+#loginRoot .mfx-button:hover {
+    -fx-background-color: #2E59D9;
+}
+
+/* =====================
+   ERROR LABEL
+   ===================== */
+#loginRoot .error-hidden {
+    -fx-text-fill: #E74A3B;
+    -fx-font-weight: bold;
+    -fx-opacity: 0; /* hidden by default */
+}
+
+#loginRoot .error-visible {
+    -fx-text-fill: #E74A3B;
+    -fx-font-weight: bold;
+    -fx-opacity: 1; /* visible */
 }

@@ -1,0 +1,58 @@
+/* =====================
+   ROOT
+   ===================== */
+#roomTypesRoot {
+    -fx-background-color: #F5F7FA;
+    -fx-padding: 20;
+}
+
+/* =====================
+   TITLE
+   ===================== */
+#roomTypesRoot Label {
+    -fx-text-fill: #2E2E3A;
+}
+
+/* =====================
+   TABLE
+   ===================== */
+/*#roomTypesRoot .main-table.mfx-table {*/
+/*    -fx-background-color: #FFFFFF;*/
+/*    -fx-background-radius: 14;*/
+/*    -fx-border-color: #E0E0E0;*/
+/*    -fx-border-radius: 14;*/
+/*    -fx-padding: 10;*/
+/*}*/
+
+/*!* Column headers *!*/
+/*#roomTypesRoot .mfx-column-header {*/
+/*    -fx-background-color: #F8F9FC;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-text-fill: #4A4A68;*/
+/*}*/
+
+/*!* Rows *!*/
+/*#roomTypesRoot .mfx-table-row-cell {*/
+/*    -fx-background-color: #FFFFFF;*/
+/*}*/
+
+/*#roomTypesRoot .mfx-table-row-cell:odd {*/
+/*    -fx-background-color: #F4F5F7;*/
+/*}*/
+
+/* =====================
+   BUTTON
+   ===================== */
+#roomTypesRoot .primary-btn {
+    -fx-background-color: #4E73DF;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 14;
+    -fx-cursor: hand;
+    -fx-padding: 10 24 10 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+}
+
+#roomTypesRoot .primary-btn:hover {
+    -fx-background-color: #2E59D9;
+}

@@ -1,0 +1,114 @@
+/* =====================
+   ROOT
+   ===================== */
+#reservationDetailsRoot {
+    -fx-background-color: #F5F7FA;
+    -fx-padding: 20;
+}
+
+/* =====================
+   TITLE
+   ===================== */
+#reservationDetailsRoot #lblTitle {
+    -fx-text-fill: #2E2E3A;
+    -fx-padding: 10 0 20 0;
+}
+
+/* =====================
+   SECTION CARDS
+   ===================== */
+#reservationDetailsRoot VBox {
+    -fx-spacing: 15;
+}
+
+/* Karty sekcji */
+#reservationDetailsRoot #guestInfoBox,
+#reservationDetailsRoot #reservationInfoBox,
+#reservationDetailsRoot #paymentInfoBox {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 16;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0, 0, 4);
+}
+
+/* =====================
+   SECTION HEADERS
+   ===================== */
+#reservationDetailsRoot Label {
+    -fx-text-fill: #2E2E3A;
+}
+
+#reservationDetailsRoot Label[text] {
+    -fx-font-smoothing-type: gray;
+}
+
+/* Nagłówki sekcji */
+#reservationDetailsRoot .label {
+    -fx-font-size: 14px;
+}
+
+#reservationDetailsRoot VBox > Label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10 0;
+}
+
+/* =====================
+   GRID LABELS
+   ===================== */
+#reservationDetailsRoot GridPane Label {
+    -fx-text-fill: #4A4A68;
+}
+
+#reservationDetailsRoot GridPane Label:first-child {
+    -fx-font-weight: bold;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+#reservationDetailsRoot .mfx-button {
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+/* Back button */
+#reservationDetailsRoot #btnBack {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4E73DF;
+    -fx-border-color: #4E73DF;
+    -fx-border-radius: 10;
+    -fx-padding: 6 16 6 16;
+}
+
+#reservationDetailsRoot #btnBack:hover {
+    -fx-background-color: rgba(78,115,223,0.1);
+}
+
+/* =====================
+   TABLE (PAYMENTS)
+   ===================== */
+#reservationDetailsRoot .mfx-table {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 12;
+    -fx-padding: 10;
+}
+
+/* Column headers */
+#reservationDetailsRoot .mfx-column-header {
+    -fx-background-color: #F8F9FC;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A4A68;
+}
+
+/* Rows */
+#reservationDetailsRoot .mfx-table-row-cell {
+    -fx-background-color: #FFFFFF;
+}
+
+#reservationDetailsRoot .mfx-table-row-cell:odd {
+    -fx-background-color: #F4F5F7;
+}

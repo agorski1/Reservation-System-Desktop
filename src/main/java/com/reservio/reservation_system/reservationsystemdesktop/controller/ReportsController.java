@@ -24,13 +24,7 @@ public class ReportsController {
     private MFXDatePicker dateTo;
 
     @FXML
-    private MFXButton btnPreviewOccupancy;
-
-    @FXML
     private MFXButton btnGeneratePDFOccupancy;
-
-    @FXML
-    private MFXButton btnPreviewPayments;
 
     @FXML
     private MFXButton btnGeneratePDFPayments;
@@ -47,66 +41,42 @@ public class ReportsController {
 
     @FXML
     public void initialize() {
-        btnGeneratePDFOccupancy.setOnAction(event -> {
-            LocalDateTime start = dateFrom.getValue() != null ? dateFrom.getValue().atStartOfDay() : LocalDateTime.now().minusDays(7);
-            LocalDateTime end = dateTo.getValue() != null ? dateTo.getValue().atTime(LocalTime.MAX) : LocalDateTime.now();
-
-            List<RoomOccupancyReportDto> occupancy = reportService.getRoomOccupancyReport(start, end);
-            String filePath = "raport_oblozenia_" + start.toLocalDate() + "_to_" + end.toLocalDate() + ".pdf";
-            reportPdfGenerator.generateOccupancyReport(filePath, occupancy);
-        });
-
-        btnGeneratePDFPayments.setOnAction(event -> {
-            LocalDateTime start = dateFrom.getValue() != null ? dateFrom.getValue().atStartOfDay() : LocalDateTime.now().minusDays(7);
-            LocalDateTime end = dateTo.getValue() != null ? dateTo.getValue().atTime(LocalTime.MAX) : LocalDateTime.now();
-
-            PaymentReportDto payments = reportService.getPaymentReport(start, end);
-            String filePath = "raport_platnosci_" + start.toLocalDate() + "_to_" + end.toLocalDate() + ".pdf";
-            reportPdfGenerator.generatePaymentReport(filePath, payments);
-        });
+        btnGeneratePDFOccupancy.setOnAction(event -> generateOccupancyPdf());
+        btnGeneratePDFPayments.setOnAction(event -> generatePaymentPdf());
     }
 
     private void generateOccupancyPdf() {
-        try {
-            LocalDate start = dateFrom.getValue();
-            LocalDate end = dateTo.getValue();
+        LocalDate startDate = dateFrom.getValue();
+        LocalDate endDate = dateTo.getValue();
 
-            if (start == null || end == null) {
-                System.out.println("Wybierz zakres dat");
-                return;
-            }
-
-            List<RoomOccupancyReportDto> report = reportService.getRoomOccupancyReport(
-                    start.atStartOfDay(), end.atStartOfDay()
-            );
-
-            String filePath = "raport_oblozenia_" + start + "_to_" + end + ".pdf";
-            reportPdfGenerator.generateOccupancyReport(filePath, report);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (startDate == null || endDate == null) {
+            System.out.println("Wybierz zakres dat");
+            return;
         }
+
+        // Tworzymy LocalDateTime od początku pierwszego dnia do końca ostatniego dnia
+        LocalDateTime start = startDate.atStartOfDay();
+        LocalDateTime end = endDate.atTime(LocalTime.MAX);
+
+        List<RoomOccupancyReportDto> report = reportService.getRoomOccupancyReport(start, end);
+        String filePath = "raport_oblozenia_" + startDate + "_to_" + endDate + ".pdf";
+        reportPdfGenerator.generateOccupancyReport(filePath, report);
     }
 
     private void generatePaymentPdf() {
-        try {
-            LocalDate start = dateFrom.getValue();
-            LocalDate end = dateTo.getValue();
+        LocalDate startDate = dateFrom.getValue();
+        LocalDate endDate = dateTo.getValue();
 
-            if (start == null || end == null) {
-                System.out.println("Wybierz zakres dat");
-                return;
-            }
-
-            PaymentReportDto report = reportService.getPaymentReport(
-                    start.atStartOfDay(), end.atStartOfDay()
-            );
-
-            String filePath = "raport_platnosci_" + start + "_to_" + end + ".pdf";
-            reportPdfGenerator.generatePaymentReport(filePath, report);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (startDate == null || endDate == null) {
+            System.out.println("Wybierz zakres dat");
+            return;
         }
+
+        LocalDateTime start = startDate.atStartOfDay();
+        LocalDateTime end = endDate.atTime(LocalTime.MAX);
+
+        PaymentReportDto report = reportService.getPaymentReport(start, end);
+        String filePath = "raport_platnosci_" + startDate + "_to_" + endDate + ".pdf";
+        reportPdfGenerator.generatePaymentReport(filePath, report);
     }
 }

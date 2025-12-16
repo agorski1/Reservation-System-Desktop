@@ -8,7 +8,7 @@ public record RoomOccupancyReportDto (
     Integer totalDays, // liczba dni raportu
 
     Short roomNumber,
-    Short roomType,
+    String roomType,
     Long capacity,
 
     Integer reservationCount, // liczba pobytow

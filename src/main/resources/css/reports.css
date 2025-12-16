@@ -1,0 +1,78 @@
+/* =====================
+   ROOT
+   ===================== */
+#reportRoot {
+    -fx-background-color: transparent;
+    -fx-padding: 15;
+}
+
+/* =====================
+   LABELY TYTUŁÓW
+   ===================== */
+#reportRoot Label {
+    -fx-text-fill: #2C3E50;
+    -fx-font-weight: bold;
+}
+
+/* Nagłówek panelu raportów */
+#reportRoot > VBox > Label {
+    -fx-font-size: 34px;
+}
+
+/* =====================
+   KARTY (BorderPane)
+   ===================== */
+#reportRoot BorderPane {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 12;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-spacing: 10;
+}
+
+/* Nagłówek karty */
+#reportRoot BorderPane Label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A4A68;
+}
+
+/* Nagłówek top w karcie */
+#reportRoot BorderPane > .top Label {
+    -fx-font-size: 30px;
+}
+
+/* Etykiety opisowe po lewej */
+#reportRoot BorderPane > .left Label {
+    -fx-font-size: 20px;
+    -fx-text-fill: #4A4A68;
+}
+
+/* =====================
+   BUTTONY
+   ===================== */
+#reportRoot MFXButton {
+    -fx-background-color: #4E73DF;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 8 20 8 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0, 0, 2);
+}
+
+#reportRoot MFXButton:hover {
+    -fx-background-color: #2E59D9;
+}
+
+/* =====================
+   DATE PICKERY
+   ===================== */
+#reportRoot MFXDatePicker {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 12;
+    -fx-padding: 6 12 6 12;
+}

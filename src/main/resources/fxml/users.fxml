@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.UsersController">
+<AnchorPane fx:id="usersRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="990.0" stylesheets="@/css/users.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.UsersController">
    <children>
-      <VBox layoutX="413.0" layoutY="295.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox layoutX="413.0" layoutY="295.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="Użytkownicy">
                <font>
@@ -38,7 +38,7 @@
                   <MFXTableView fx:id="tableUsers" maxHeight="660.0" maxWidth="585.0" minHeight="660.0" minWidth="585.0" prefHeight="660.0" prefWidth="585.0" />
                   <VBox prefHeight="667.0" prefWidth="500.0" spacing="40.0">
                      <children>
-                        <VBox prefHeight="348.0" prefWidth="390.0">
+                        <VBox prefHeight="348.0" prefWidth="390.0" styleClass="card">
                            <children>
                               <Label text="Panel szczegółów">
                                  <font>
@@ -77,13 +77,13 @@
                               </HBox>
                               <HBox prefHeight="54.0" prefWidth="390.0" spacing="10.0">
                                  <children>
-                                    <MFXButton fx:id="btnSave" prefHeight="50.0" prefWidth="150.0" text="Zapisz zmiany" />
-                                    <MFXButton fx:id="btnAddUser" alignment="CENTER" prefHeight="51.0" prefWidth="165.0" text="Dodaj użytkownika" />
+                                    <MFXButton fx:id="btnSave" prefHeight="50.0" prefWidth="150.0" styleClass="primary-btn" text="Zapisz zmiany" />
+                                    <MFXButton fx:id="btnAddUser" alignment="CENTER" prefHeight="51.0" prefWidth="165.0" styleClass="secondary-btn" text="Dodaj użytkownika" />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="192.0" prefWidth="390.0">
+                        <VBox prefHeight="192.0" prefWidth="390.0" styleClass="card">
                            <children>
                               <Label text="Ustawianie hasła">
                                  <font>
@@ -98,7 +98,7 @@
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <MFXButton fx:id="btnPasswordReset" prefHeight="50.0" prefWidth="150.0" text="Resetuj hasło" />
+                                    <MFXButton fx:id="btnPasswordReset" prefHeight="50.0" prefWidth="150.0" styleClass="danger-btn" text="Resetuj hasło" />
                                  </children>
                               </HBox>
                            </children>
