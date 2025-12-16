@@ -16,18 +16,32 @@ import java.util.ResourceBundle;
 
 public class UsersController implements Initializable {
 
-    @FXML private MFXTableView<EmployeeDto> tableUsers;
-    @FXML private MFXTextField txtFirstName;
-    @FXML private MFXTextField txtLastName;
-    @FXML private MFXTextField txtEmail;
-    @FXML private MFXTextField txtPhone;
-    @FXML private MFXTextField txtCity;
-    @FXML private MFXTextField txtZipCode;
-    @FXML private MFXTextField txtStreet;
-    @FXML private MFXPasswordField txtPassword;
-    @FXML private MFXButton btnSave;
-    @FXML private MFXButton btnPasswordReset;
-    @FXML private MFXButton btnAddUser;
+    @FXML
+    private MFXTableView<EmployeeDto> tableUsers;
+    @FXML
+    private MFXTextField txtFirstName;
+    @FXML
+    private MFXTextField txtLastName;
+    @FXML
+    private MFXTextField txtEmail;
+    @FXML
+    private MFXTextField txtPhone;
+    @FXML
+    private MFXTextField txtCity;
+    @FXML
+    private MFXTextField txtZipCode;
+    @FXML
+    private MFXTextField txtStreet;
+    @FXML
+    private MFXPasswordField txtPassword;
+    @FXML
+    private MFXButton btnSave;
+    @FXML
+    private MFXButton btnPasswordReset;
+    @FXML
+    private MFXButton btnAddUser;
+    @FXML
+    private MFXTextField txtSearchClient;
 
     private final UserService userService;
     private EmployeeDto selectedUser;
@@ -45,7 +59,9 @@ public class UsersController implements Initializable {
         initActions();
         loadUsers();
         setDetailsDisabled(true);
-
+        txtSearchClient.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterUsers(newValue);
+        });
         tableUsers.widthProperty().addListener((obs, oldWidth, newWidth) -> {
             double totalWidth = newWidth.doubleValue() - 2;
             int columnsCount = tableUsers.getTableColumns().size();
@@ -233,15 +249,43 @@ public class UsersController implements Initializable {
         if (selectedUser == null) return false;
 
         return !safeString(selectedUser.firstName()).equals(txtFirstName.getText().trim()) ||
-               !safeString(selectedUser.lastName()).equals(txtLastName.getText().trim()) ||
-               !safeString(selectedUser.email()).equals(txtEmail.getText().trim()) ||
-               !safeString(selectedUser.phoneNumber()).equals(txtPhone.getText().trim()) ||
-               !safeString(selectedUser.city()).equals(txtCity.getText().trim()) ||
-               !safeString(selectedUser.zipCode()).equals(txtZipCode.getText().trim()) ||
-               !safeString(selectedUser.street()).equals(txtStreet.getText().trim());
+                !safeString(selectedUser.lastName()).equals(txtLastName.getText().trim()) ||
+                !safeString(selectedUser.email()).equals(txtEmail.getText().trim()) ||
+                !safeString(selectedUser.phoneNumber()).equals(txtPhone.getText().trim()) ||
+                !safeString(selectedUser.city()).equals(txtCity.getText().trim()) ||
+                !safeString(selectedUser.zipCode()).equals(txtZipCode.getText().trim()) ||
+                !safeString(selectedUser.street()).equals(txtStreet.getText().trim());
     }
 
     private String safeString(String value) {
         return value == null ? "" : value;
+    }
+
+    private void filterUsers(String searchText) {
+        if (searchText == null || searchText.trim().isEmpty()) {
+            // Jeśli pole puste – pokazujemy wszystkich
+            loadUsers();
+            return;
+        }
+
+        String query = searchText.trim().toLowerCase();
+
+        List<EmployeeDto> allUsers = userService.getAllEmployees();
+        List<EmployeeDto> filtered = allUsers.stream()
+                .filter(user -> {
+                    String firstName = safeString(user.firstName()).toLowerCase();
+                    String lastName = safeString(user.lastName()).toLowerCase();
+                    String fullName = firstName + " " + lastName;
+                    String reversedName = lastName + " " + firstName;
+
+                    return firstName.contains(query) ||
+                            lastName.contains(query) ||
+                            fullName.contains(query) ||
+                            reversedName.contains(query);
+                })
+                .toList();
+
+        tableUsers.getItems().clear();
+        tableUsers.getItems().addAll(filtered);
     }
 }
