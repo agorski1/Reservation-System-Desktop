@@ -2,17 +2,13 @@ package com.reservio.reservation_system.reservationsystemdesktop.controller;
 
 import com.reservio.reservation_system.reservationsystemdesktop.model.user.EmployeeDto;
 import com.reservio.reservation_system.reservationsystemdesktop.service.UserService;
-import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.controls.MFXTableColumn;
-import io.github.palexdev.materialfx.controls.MFXTableView;
-import io.github.palexdev.materialfx.controls.MFXTextField;
+import io.github.palexdev.materialfx.controls.*;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import jakarta.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.PasswordField;
 
 import java.net.URL;
 import java.util.List;
@@ -28,7 +24,7 @@ public class UsersController implements Initializable {
     @FXML private MFXTextField txtCity;
     @FXML private MFXTextField txtZipCode;
     @FXML private MFXTextField txtStreet;
-    @FXML private PasswordField txtPassword;
+    @FXML private MFXPasswordField txtPassword;
     @FXML private MFXButton btnSave;
     @FXML private MFXButton btnPasswordReset;
     @FXML private MFXButton btnAddUser;
