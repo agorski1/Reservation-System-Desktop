@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,23 +12,14 @@
 
 <AnchorPane fx:id="reservationDetailsRoot" prefHeight="770.0" prefWidth="990.0" stylesheets="@/css/reservationDetails.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reservio.reservation_system.reservationsystemdesktop.controller.ReservationDetailsController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox maxHeight="770.0" maxWidth="990.0" minHeight="770.0" minWidth="990.0" prefHeight="770.0" prefWidth="990.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="985.0" text="SZCZEGÓŁY REZERWACJI">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <HBox prefHeight="50.0" prefWidth="200.0">
-               <children>
-                  <MFXButton fx:id="btnBack" alignment="TOP_LEFT" prefHeight="38.0" prefWidth="112.0" text="&lt;--- Powrót">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </MFXButton>
-               </children>
-            </HBox>
-            <VBox fx:id="guestInfoBox" prefHeight="150.0" prefWidth="980.0">
+            <VBox fx:id="guestInfoBox" maxHeight="150.0" maxWidth="980.0" minHeight="150.0" minWidth="980.0" prefHeight="150.0" prefWidth="980.0">
                <children>
                   <Label text="Informacje o kliencie">
                      <font>
@@ -106,7 +96,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox fx:id="reservationInfoBox" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="reservationInfoBox" maxHeight="200.0" maxWidth="980.0" minHeight="200.0" minWidth="980.0" prefHeight="200.0" prefWidth="980.0">
                <children>
                   <Label text="Informacje o rezerwacji">
                      <font>
@@ -199,7 +189,7 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox fx:id="paymentInfoBox" prefHeight="311.0" prefWidth="980.0">
+            <VBox fx:id="paymentInfoBox" maxHeight="311.0" maxWidth="980.0" minHeight="311.0" minWidth="980.0" prefHeight="311.0" prefWidth="980.0">
                <children>
                   <Label text="Opłaty">
                      <font>

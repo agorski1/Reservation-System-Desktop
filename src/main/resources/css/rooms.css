@@ -1,14 +1,8 @@
-/* =====================
-   ROOT
-   ===================== */
 #roomsRoot {
     -fx-background-color: #F5F7FA;
     -fx-padding: 20;
 }
 
-/* =====================
-   TABLEVIEW
-   ===================== */
 #roomsRoot .main-table {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 12;
@@ -18,14 +12,12 @@
     -fx-padding: 10;
 }
 
-/* Nagłówki tabeli */
 #roomsRoot .main-table .column-header {
     -fx-background-color: #F8F9FC;
     -fx-font-weight: bold;
     -fx-text-fill: #4A4A68;
 }
 
-/* Wiersze tabeli */
 #roomsRoot .main-table .table-row-cell {
     -fx-background-color: #FFFFFF;
 }
@@ -34,9 +26,6 @@
     -fx-background-color: #F4F5F7;
 }
 
-/* =====================
-   BUTTONS
-   ===================== */
 #roomsRoot .primary-btn {
     -fx-background-color: #4E73DF;
     -fx-text-fill: white;

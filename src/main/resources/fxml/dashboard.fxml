@@ -22,7 +22,7 @@
          <children>
             <AnchorPane fx:id="cardRevenue" maxHeight="385.0" maxWidth="490.0" minHeight="385.0" minWidth="490.0" prefHeight="385.0" prefWidth="490.0" styleClass="dashboard-card">
                <children>
-                  <Label alignment="CENTER" layoutX="174.0" layoutY="21.0" text="Dzisiejsze zarobki" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+                  <Label alignment="CENTER" layoutX="174.0" layoutY="21.0" text="Przychód dziś" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
@@ -35,7 +35,7 @@
             </AnchorPane>
             <AnchorPane fx:id="cardReservations" maxHeight="385.0" maxWidth="490.0" minHeight="385.0" minWidth="490.0" prefHeight="385.0" prefWidth="490.0" styleClass="dashboard-card" GridPane.columnIndex="1">
                <children>
-                  <Label alignment="CENTER" layoutX="138.0" layoutY="14.0" text="Liczba uwtorzonych dzisiaj rezerwacji" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+                  <Label alignment="CENTER" layoutX="138.0" layoutY="14.0" text="Rezerwacje dziś" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
@@ -48,7 +48,7 @@
             </AnchorPane>
             <AnchorPane fx:id="cardOccupancy" maxHeight="385.0" maxWidth="490.0" minHeight="385.0" minWidth="490.0" prefHeight="385.0" prefWidth="490.0" styleClass="dashboard-card" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER" layoutX="130.0" layoutY="3.0" text="Procent zajętości hotelu na dziś" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+                  <Label alignment="CENTER" layoutX="130.0" layoutY="3.0" text="Zajętość (%)" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -58,7 +58,7 @@
             </AnchorPane>
             <AnchorPane fx:id="cardGuests" maxHeight="385.0" maxWidth="490.0" minHeight="385.0" minWidth="490.0" prefHeight="385.0" prefWidth="490.0" styleClass="dashboard-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER" layoutX="125.0" layoutY="3.0" text="Liczba dostępnych pokoii na dziś" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
+                  <Label alignment="CENTER" layoutX="125.0" layoutY="3.0" text="Dostępne pokoje" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>

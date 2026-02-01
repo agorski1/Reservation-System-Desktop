@@ -1,21 +1,12 @@
-/* =====================
-   ROOT
-   ===================== */
 #newReservationRoot {
     -fx-background-color: #F5F7FA;
     -fx-padding: 20;
 }
 
-/* =====================
-   MAIN TITLE
-   ===================== */
 #lblNewReservation {
     -fx-text-fill: #1F2D3D;
 }
 
-/* =====================
-   SECTION CARDS
-   ===================== */
 #clientDataBox,
 #reservationDataBox {
     -fx-background-color: white;
@@ -24,7 +15,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0, 0, 4);
 }
 
-/* Summary box */
 VBox > Label[text="PODSUMOWANIE"] {
     -fx-text-fill: #1F2D3D;
 }
@@ -36,24 +26,15 @@ VBox:has(> Label[text="PODSUMOWANIE"]) {
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0, 0, 4);
 }
 
-/* =====================
-   SECTION HEADERS
-   ===================== */
 #lblClientData,
 #lblReservationData {
     -fx-text-fill: #4E73DF;
 }
 
-/* =====================
-   LABELS
-   ===================== */
 Label {
     -fx-text-fill: #4A4A68;
 }
 
-/* =====================
-   INPUTS (MaterialFX)
-   ===================== */
 .mfx-text-field,
 .mfx-date-picker,
 .mfx-combo-box,
@@ -65,7 +46,6 @@ Label {
     -fx-padding: 6 12 6 12;
 }
 
-/* focus */
 .mfx-text-field:focused,
 .mfx-date-picker:focused,
 .mfx-combo-box:focused,
@@ -73,9 +53,6 @@ Label {
     -fx-border-color: #4E73DF;
 }
 
-/* =====================
-   SUMMARY VALUES
-   ===================== */
 #lblSummaryRoomType,
 #lblSummaryRoom,
 #lblSummaryDate,
@@ -86,9 +63,6 @@ Label {
     -fx-text-fill: #1F2D3D;
 }
 
-/* =====================
-   BUTTON
-   ===================== */
 #btnSaveReservation {
     -fx-background-color: #4E73DF;
     -fx-text-fill: white;

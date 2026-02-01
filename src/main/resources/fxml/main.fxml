@@ -12,7 +12,7 @@
    <children>
       <VBox fx:id="sidebar" maxWidth="260.0" minWidth="260.0" prefHeight="800.0" prefWidth="260.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label prefHeight="80.0" text="Hotel System">
+            <Label prefHeight="80.0" text="PMS Desktop">
                <font>
                   <Font name="Roboto Bold" size="30.0" />
                </font>
@@ -41,14 +41,20 @@
                <font>
                   <Font name="Roboto" size="13.0" />
                </font></MFXButton>
-            <MFXButton fx:id="btnUsers" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Użytkownicy">
-               <font>
-                  <Font name="Roboto" size="13.0" />
-               </font></MFXButton>
-            <MFXButton fx:id="btnRoomTypes" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Typy pokoi">
+            <MFXButton fx:id="btnUsers" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn, admin-full-badge" text="Pracownicy">
                <font>
                   <Font name="Roboto" size="13.0" />
                </font>
+               <graphic>
+                  <Label styleClass="admin-badge" text="ADMIN" />
+               </graphic></MFXButton>
+            <MFXButton fx:id="btnRoomTypes" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn, admin-full-badge" text="Typy pokoi">
+               <font>
+                  <Font name="Roboto" size="13.0" />
+               </font>
+               <graphic>
+                  <Label styleClass="admin-badge" text="ADMIN" />
+               </graphic>
             </MFXButton>
             <MFXButton fx:id="btnLogout" mnemonicParsing="false" prefHeight="55.0" prefWidth="220.0" styleClass="sidebar-btn" text="Wyloguj" textAlignment="CENTER">
                <VBox.margin>

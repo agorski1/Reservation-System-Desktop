@@ -5,8 +5,6 @@ import com.reservio.reservation_system.reservationsystemdesktop.model.payment.Pa
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ReservationDto;
 import com.reservio.reservation_system.reservationsystemdesktop.service.PaymentService;
 import com.reservio.reservation_system.reservationsystemdesktop.service.ReservationService;
-import com.reservio.reservation_system.reservationsystemdesktop.util.SceneManager;
-import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
@@ -14,8 +12,6 @@ import jakarta.inject.Inject;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.io.IOException;
 
 public class ReservationDetailsController {
 
@@ -37,7 +33,6 @@ public class ReservationDetailsController {
 
     @FXML private MFXTableView<PaymentEntryDto> tblPayments;
 
-    @FXML private MFXButton btnBack;
 
     @Inject private ReservationService reservationService;
     @Inject private PaymentService paymentService;
@@ -45,7 +40,6 @@ public class ReservationDetailsController {
     @FXML
     private void initialize() {
         setupPaymentTable();
-        btnBack.setOnAction(e -> goBack());
     }
 
     private void setupPaymentTable() {
@@ -106,14 +100,5 @@ public class ReservationDetailsController {
         lblRemaining.setText(payments.summary().remainingAmount().toString());
 
         tblPayments.setItems(FXCollections.observableArrayList(payments.entries()));
-    }
-
-    /* ------------------------- GO BACK ------------------------- */
-    private void goBack() {
-        try {
-            SceneManager.loadIntoMainContent("/fxml/reservations.fxml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

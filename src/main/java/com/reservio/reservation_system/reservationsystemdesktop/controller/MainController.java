@@ -14,17 +14,27 @@ import java.io.IOException;
 
 public class MainController {
 
-    @FXML private VBox sidebar;
+    @FXML
+    private VBox sidebar;
 
-    @FXML private MFXButton btnDashboard;
-    @FXML private MFXButton btnRooms;
-    @FXML private MFXButton btnReservations;
-    @FXML private MFXButton btnReports;
-    @FXML private MFXButton btnUsers;
-    @FXML private MFXButton btnRoomTypes;
-    @FXML private MFXButton btnLogout;
+    @FXML
+    private MFXButton btnDashboard;
+    @FXML
+    private MFXButton btnRooms;
+    @FXML
+    private MFXButton btnReservations;
+    @FXML
+    private MFXButton btnReports;
+    @FXML
+    private MFXButton btnUsers;
+    @FXML
+    private MFXButton btnRoomTypes;
+    @FXML
+    private MFXButton btnLogout;
+    private MFXButton activeButton = null;
 
-    @FXML private BorderPane contentArea;
+    @FXML
+    private BorderPane contentArea;
 
     private String role;
 
@@ -33,6 +43,7 @@ public class MainController {
 
     @FXML
     private void initialize() {
+        SceneManager.setMainController(this);
         role = Auth.getRole();
 
         if (!"Admin".equals(role)) {
@@ -43,17 +54,37 @@ public class MainController {
             btnRoomTypes.setManaged(false);
         }
 
-        btnDashboard.setOnAction(e -> loadView("/fxml/dashboard.fxml"));
-        btnRooms.setOnAction(e -> loadView("/fxml/rooms.fxml"));
-        btnReservations.setOnAction(e -> loadView("/fxml/reservations.fxml"));
-        btnReports.setOnAction(e -> loadView("/fxml/reports.fxml"));
-        btnUsers.setOnAction(e -> loadView("/fxml/users.fxml"));
-        btnRoomTypes.setOnAction(e -> loadView("/fxml/roomTypes.fxml"));
+        SceneManager.setMainContentArea(contentArea);
+
+        setActiveButton(btnDashboard);
+        loadView("/fxml/dashboard.fxml"); // ✅ TYLKO JEDEN RAZ
+
+        btnDashboard.setOnAction(e -> {
+            setActiveButton(btnDashboard);
+            loadView("/fxml/dashboard.fxml");
+        });
+        btnRooms.setOnAction(e -> {
+            setActiveButton(btnRooms);
+            loadView("/fxml/rooms.fxml");
+        });
+        btnReservations.setOnAction(e -> {
+            setActiveButton(btnReservations);
+            loadView("/fxml/reservations.fxml");
+        });
+        btnReports.setOnAction(e -> {
+            setActiveButton(btnReports);
+            loadView("/fxml/reports.fxml");
+        });
+        btnUsers.setOnAction(e -> {
+            setActiveButton(btnUsers);
+            loadView("/fxml/users.fxml");
+        });
+        btnRoomTypes.setOnAction(e -> {
+            setActiveButton(btnRoomTypes);
+            loadView("/fxml/roomTypes.fxml");
+        });
 
         btnLogout.setOnAction(e -> logout());
-
-        SceneManager.setMainContentArea(contentArea);
-        loadView("/fxml/dashboard.fxml");
     }
 
     private void loadView(String fxmlPath) {
@@ -66,8 +97,15 @@ public class MainController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Można dodać komunikat błędu dla użytkownika
         }
+    }
+
+    private void setActiveButton(MFXButton button) {
+        if (activeButton != null) {
+            activeButton.getStyleClass().remove("active");
+        }
+        button.getStyleClass().add("active");
+        activeButton = button;
     }
 
     private void logout() {
@@ -77,4 +115,9 @@ public class MainController {
             e.printStackTrace();
         }
     }
+
+    public void activateReservationsButton() {
+        setActiveButton(btnReservations);
+    }
 }
+

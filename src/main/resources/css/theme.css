@@ -1,29 +1,16 @@
-/* =====================
-   ROOT / GLOBAL
-   ===================== */
-
 .root {
     -fx-font-family: "Roboto";
     -fx-background-color: #F5F6FA;
 }
-
-/* =====================
-   SIDEBAR
-   ===================== */
 
 #sidebar {
     -fx-background-color: #1E1E2F;
     -fx-background-radius: 0 18 18 0;
 }
 
-/* Tytuł aplikacji */
 #sidebar Label {
     -fx-text-fill: #FFFFFF;
 }
-
-/* =====================
-   SIDEBAR BUTTONS
-   ===================== */
 
 .sidebar-btn {
     -fx-background-color: transparent;
@@ -33,32 +20,16 @@
     -fx-cursor: hand;
 }
 
-/* Hover */
 .sidebar-btn:hover {
     -fx-background-color: rgba(255, 255, 255, 0.08);
     -fx-text-fill: #FFFFFF;
 }
-
-/* Focus / active */
-.sidebar-btn:focused,
-.sidebar-btn:pressed {
-    -fx-background-color: #4E73DF;
-    -fx-text-fill: #FFFFFF;
-}
-
-/* =====================
-   CONTENT AREA
-   ===================== */
 
 #contentArea {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 18;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0, 0, 5);
 }
-
-/* =====================
-   SCROLLBARS (opcjonalnie)
-   ===================== */
 
 .scroll-bar:vertical {
     -fx-background-color: transparent;
@@ -67,4 +38,43 @@
 .scroll-bar:vertical .thumb {
     -fx-background-color: #C4C4D6;
     -fx-background-radius: 6;
+}
+
+
+.admin-badge {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-padding: 4 10 3 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-min-width: 54px;
+    -fx-alignment: center;
+}
+
+.sidebar-btn:hover .admin-badge {
+    -fx-background-color: #e04d5d;
+}
+
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D1D1E0;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: #FFFFFF;
+}
+
+.sidebar-btn.active {
+    -fx-background-color: #4E73DF !important;
+    -fx-text-fill: #FFFFFF !important;
+}
+
+.sidebar-btn.active:hover {
+    -fx-background-color: #3a5bb8 !important;
 }

@@ -1,7 +1,7 @@
 package com.reservio.reservation_system.reservationsystemdesktop.service;
 
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ManualReservationRequestDto;
-import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ReservationDto; // <-- ten z backendu
+import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.ReservationDto;
 import com.reservio.reservation_system.reservationsystemdesktop.model.reservation.UpdateStatusRequestDto;
 import com.reservio.reservation_system.reservationsystemdesktop.util.HttpClient;
 import jakarta.inject.Inject;

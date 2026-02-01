@@ -61,7 +61,7 @@ public class NewReservationController {
 
     @FXML
     public void initialize() {
-        IntegerSpinnerModel model = new IntegerSpinnerModel(1); // start = 1
+        IntegerSpinnerModel model = new IntegerSpinnerModel(1);
         model.setMin(1);
         model.setMax(10);
         model.setIncrement(1);
@@ -193,17 +193,14 @@ public class NewReservationController {
     @FXML
     private void handleCreateReservation() {
         try {
-            // Pobieranie danych z pól
             String firstName = txtFirstName.getText();
             String lastName = txtLastName.getText();
             String email = txtEmail.getText();
             String phone = txtPhone.getText();
 
-            // Spinner
             Integer guests = (Integer) spinnerGuests.getValue();
             Short guestCount = guests != null ? guests.shortValue() : 0;
 
-            // Pokój
             AvailableRoomDto selectedRoom = comboRoom.getValue();
             if (selectedRoom == null) {
                 return;
@@ -211,7 +208,6 @@ public class NewReservationController {
 
             Long roomId = selectedRoom.id();
 
-            // Daty
             LocalDate checkIn = dateCheckIn.getValue();
             LocalDate checkOut = dateCheckOut.getValue();
             if (checkIn == null || checkOut == null) {

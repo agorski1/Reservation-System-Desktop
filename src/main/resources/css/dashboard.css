@@ -16,16 +16,13 @@
     -fx-text-fill: #4E73DF;
     -fx-font-weight: bold;
 }
-/* ===================== DASHBOARD PIE CHART COLORS
-   ===================== */
-.pie-chart .data0 { -fx-pie-color: #4E73DF; } /* zajęte pokoje */
-.pie-chart .data1 { -fx-pie-color: #A5B8F1; } /* dostępne pokoje (jaśniejszy niebieski) */
 
-/* Opcjonalnie, dopasowanie legendy */
+.pie-chart .data0 { -fx-pie-color: #4E73DF; }
+.pie-chart .data1 { -fx-pie-color: #A5B8F1; }
+
 .pie-chart .chart-legend-item-symbol {
     -fx-border-color: transparent;
     -fx-border-width: 0;
 }
-/* PieChart Occupancy Colors */
-.pie-chart .default-color0.chart-pie { -fx-pie-color: #4E73DF; } /* Zajęte - ciemny niebieski */
-.pie-chart .default-color1.chart-pie { -fx-pie-color: #A5B8F1; } /* Dostępne - jasny niebieski */
+.pie-chart .default-color0.chart-pie { -fx-pie-color: #4E73DF; }
+.pie-chart .default-color1.chart-pie { -fx-pie-color: #A5B8F1; }

@@ -81,9 +81,8 @@ public class ReservationsController implements Initializable {
         var statusCol = new MFXTableColumn<ReservationDesktopDto>("Status", true);
         statusCol.setRowCellFactory(r -> new MFXTableRowCell<>(ReservationDesktopDto::statusPolish));
 
-        // Tymczasowo dodajemy pustą kolumnę akcji – zaraz będziemy ją nadpisywać
         var actionsCol = new MFXTableColumn<ReservationDesktopDto>("Akcje", true);
-        actionsCol.setPrefWidth(120); // opcjonalnie stała szerokość
+        actionsCol.setPrefWidth(120);
 
         reservationsTable.getTableColumns().addAll(clientCol, inCol, outCol, statusCol, actionsCol);
     }
@@ -148,8 +147,9 @@ public class ReservationsController implements Initializable {
             SceneManager.loadIntoMainContent("/fxml/newReservation.fxml", controller -> {
                 if (controller instanceof com.reservio.reservation_system.reservationsystemdesktop.controller.NewReservationController newResController) {
                     System.out.println("NewReservationController załadowany poprawnie!");
-                    // Tu możesz wywołać jakieś metody inizjalizujące, np. newResController.initData(...);
                 }
+                SceneManager.getMainController()
+                .activateReservationsButton();
             });
         } catch (IOException e) {
             e.printStackTrace();
@@ -169,7 +169,6 @@ public class ReservationsController implements Initializable {
     }
 
     private void updateActionsColumn() {
-        // Znajdujemy ostatnią kolumnę (Akcje) – zakładamy, że jest na pozycji 4
         var actionsCol = (MFXTableColumn<ReservationDesktopDto>) reservationsTable.getTableColumns().get(4);
 
         actionsCol.setRowCellFactory(dto -> new MFXTableRowCell<ReservationDesktopDto, String>(r -> "") {
@@ -177,14 +176,12 @@ public class ReservationsController implements Initializable {
                 HBox box = new HBox(8);
                 box.setAlignment(Pos.CENTER);
 
-                // Zawsze przycisk szczegółów
                 Label view = new Label("[>]");
                 String baseStyle = "-fx-font-size: 18; -fx-cursor: hand; -fx-padding: 0 8 0 8;";
                 view.setStyle(baseStyle + "-fx-text-fill: blue;");
                 view.setOnMouseClicked(e -> openReservationDetails(dto.id()));
                 box.getChildren().add(view);
 
-                // Pokazujemy ✓ i ✗ TYLKO gdy toggle jest WYŁĄCZONY (nie pokazujemy zakończonych)
                 if (!btnShowCompleted.isSelected()) {
                     Label confirm = new Label("[✓]");
                     Label reject = new Label("[X]");
@@ -195,7 +192,7 @@ public class ReservationsController implements Initializable {
                     confirm.setOnMouseClicked(e -> {
                         try {
                             reservationService.updateReservationStatus(dto.id(), "Confirmed");
-                            loadReservations(); // odświeżamy całą listę po zmianie
+                            loadReservations();
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
@@ -204,7 +201,7 @@ public class ReservationsController implements Initializable {
                     reject.setOnMouseClicked(e -> {
                         try {
                             reservationService.updateReservationStatus(dto.id(), "Rejected");
-                            loadReservations(); // odświeżamy
+                            loadReservations();
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
@@ -219,7 +216,6 @@ public class ReservationsController implements Initializable {
             }
         });
 
-        // Ważne: odświeżamy widok tabeli, żeby nowe komórki się wyrenderowały
 
 reservationsTable.getItems().setAll(reservationsTable.getItems());
     }

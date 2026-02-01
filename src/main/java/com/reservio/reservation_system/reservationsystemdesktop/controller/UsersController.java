@@ -101,7 +101,6 @@ public class UsersController implements Initializable {
                     setDetailsDisabled(false);
                 }
             } else {
-                // Odznaczenie – jeśli nie jesteśmy w trybie dodawania
                 if (!isAddingNewUser) {
                     selectedUser = null;
                     clearUserDetails();
@@ -160,9 +159,7 @@ public class UsersController implements Initializable {
         btnAddUser.setOnAction(e -> startAddingNewUser());
     }
 
-    // KLIKNIĘCIE "Dodaj użytkownika"
     private void startAddingNewUser() {
-        // Jeśli są niezapisane zmiany – zapytaj
         if (selectedUser != null && isFormDirty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Niezapisane zmiany");
@@ -179,9 +176,8 @@ public class UsersController implements Initializable {
                 if (response == save) {
                     saveUserChanges();
                 } else if (response == cancel) {
-                    return; // nie rób nic
+                    return;
                 }
-                // discard lub po zapisie – kontynuuj
                 proceedToAddNewUser();
             });
         } else {
@@ -204,7 +200,6 @@ public class UsersController implements Initializable {
         txtFirstName.requestFocus();
     }
 
-    // ZAPIS – działa dla edycji i dodawania
     private void saveUserChanges() {
         EmployeeDto dto = new EmployeeDto(
                 isAddingNewUser ? null : selectedUser.id(),
@@ -225,7 +220,6 @@ public class UsersController implements Initializable {
 
         loadUsers();
 
-        // Po zapisie wracamy do trybu normalnego
         isAddingNewUser = false;
         selectedUser = null;
         tableUsers.getSelectionModel().clearSelection();
@@ -263,7 +257,6 @@ public class UsersController implements Initializable {
 
     private void filterUsers(String searchText) {
         if (searchText == null || searchText.trim().isEmpty()) {
-            // Jeśli pole puste – pokazujemy wszystkich
             loadUsers();
             return;
         }

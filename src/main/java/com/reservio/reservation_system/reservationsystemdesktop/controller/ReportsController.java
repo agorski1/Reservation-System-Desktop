@@ -54,7 +54,6 @@ public class ReportsController {
             return;
         }
 
-        // Tworzymy LocalDateTime od początku pierwszego dnia do końca ostatniego dnia
         LocalDateTime start = startDate.atStartOfDay();
         LocalDateTime end = endDate.atTime(LocalTime.MAX);
 

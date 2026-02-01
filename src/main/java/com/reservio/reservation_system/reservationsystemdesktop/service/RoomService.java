@@ -6,7 +6,6 @@ import com.reservio.reservation_system.reservationsystemdesktop.model.room.Updat
 import com.reservio.reservation_system.reservationsystemdesktop.util.HttpClient;
 import jakarta.inject.Inject;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;

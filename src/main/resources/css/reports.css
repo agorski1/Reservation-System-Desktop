@@ -1,27 +1,17 @@
-/* =====================
-   ROOT
-   ===================== */
 #reportRoot {
     -fx-background-color: transparent;
     -fx-padding: 15;
 }
 
-/* =====================
-   LABELY TYTUŁÓW
-   ===================== */
 #reportRoot Label {
     -fx-text-fill: #2C3E50;
     -fx-font-weight: bold;
 }
 
-/* Nagłówek panelu raportów */
 #reportRoot > VBox > Label {
     -fx-font-size: 34px;
 }
 
-/* =====================
-   KARTY (BorderPane)
-   ===================== */
 #reportRoot BorderPane {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 12;
@@ -32,26 +22,20 @@
     -fx-spacing: 10;
 }
 
-/* Nagłówek karty */
 #reportRoot BorderPane Label {
     -fx-font-weight: bold;
     -fx-text-fill: #4A4A68;
 }
 
-/* Nagłówek top w karcie */
 #reportRoot BorderPane > .top Label {
     -fx-font-size: 30px;
 }
 
-/* Etykiety opisowe po lewej */
 #reportRoot BorderPane > .left Label {
     -fx-font-size: 20px;
     -fx-text-fill: #4A4A68;
 }
 
-/* =====================
-   BUTTONY
-   ===================== */
 #reportRoot MFXButton {
     -fx-background-color: #4E73DF;
     -fx-text-fill: white;

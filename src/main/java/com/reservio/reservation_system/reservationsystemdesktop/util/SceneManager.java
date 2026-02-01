@@ -1,12 +1,14 @@
 package com.reservio.reservation_system.reservationsystemdesktop.util;
 
 import com.reservio.reservation_system.reservationsystemdesktop.AppInjector;
+import com.reservio.reservation_system.reservationsystemdesktop.controller.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.function.Consumer;
 
@@ -15,6 +17,15 @@ public class SceneManager {
     private static Stage stage;
     private static Scene scene;
     private static BorderPane mainContentArea;
+    private static MainController mainController;
+
+    public static void setMainController(MainController controller) {
+        mainController = controller;
+    }
+
+    public static MainController getMainController() {
+        return mainController;
+    }
 
     public static void setStage(Stage primaryStage) {
         stage = primaryStage;

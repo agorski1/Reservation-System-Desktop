@@ -1,21 +1,12 @@
-/* =====================
-   ROOT
-   ===================== */
 #loginRoot {
     -fx-background-color: #F5F7FA;
 }
 
-/* =====================
-   TITLE
-   ===================== */
 #loginRoot #txtLogowanie {
     -fx-fill: #2E2E3A;
     -fx-font-weight: bold;
 }
 
-/* =====================
-   TEXTFIELDS
-   ===================== */
 #loginRoot .mfx-text-field,
 #loginRoot .mfx-password-field {
     -fx-background-color: #FFFFFF;
@@ -26,9 +17,6 @@
     -fx-font-size: 15px;
 }
 
-/* =====================
-   BUTTON
-   ===================== */
 #loginRoot .mfx-button {
     -fx-background-color: #4E73DF;
     -fx-text-fill: white;
@@ -44,17 +32,14 @@
     -fx-background-color: #2E59D9;
 }
 
-/* =====================
-   ERROR LABEL
-   ===================== */
 #loginRoot .error-hidden {
     -fx-text-fill: #E74A3B;
     -fx-font-weight: bold;
-    -fx-opacity: 0; /* hidden by default */
+    -fx-opacity: 0;
 }
 
 #loginRoot .error-visible {
     -fx-text-fill: #E74A3B;
     -fx-font-weight: bold;
-    -fx-opacity: 1; /* visible */
+    -fx-opacity: 1;
 }
