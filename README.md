@@ -14,8 +14,8 @@ The system consists of three main parts:
 * ⚙️ Backend (Spring Boot) – *REST API and business logic*  
   👉 [Reservation System Backend](https://github.com/agorski1/Reservation-System)
 
-* 🖥 Desktop (JavaFX) – *employee management system*  
-  👉 [Reservation System Desktop](https://github.com/agorski1/Reservation-System-Desktop)
+* 🌐 Web (React) – *customer-facing application*  
+  👉 [Reservation System Web](https://github.com/agorski1/Reservation-System-Web)
 
 
 ---
