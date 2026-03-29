@@ -201,12 +201,6 @@ The application supports generating reports using:
 
 ---
 
-## 🧪 Testing
-
-Unit tests are planned for future development.
-
----
-
 ## ⚠️ Notes
 
 * Backend must be running before launching the application
