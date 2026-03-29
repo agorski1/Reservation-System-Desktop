@@ -11,8 +11,8 @@ The system consists of three main parts:
 * **Desktop Application (this repository)** – internal management tool for employees
 ### 🔗 Related Repositories
 
-* 🌐 Web (React) – *customer-facing application*  
-  👉 [Reservation System Web](https://github.com/agorski1/Reservation-System-Web)
+* ⚙️ Backend (Spring Boot) – *REST API and business logic*  
+  👉 [Reservation System Backend](https://github.com/agorski1/Reservation-System)
 
 * 🖥 Desktop (JavaFX) – *employee management system*  
   👉 [Reservation System Desktop](https://github.com/agorski1/Reservation-System-Desktop)
