@@ -192,7 +192,7 @@ public class UsersController implements Initializable {
         tableUsers.getSelectionModel().clearSelection();
         clearUserDetails();
 
-        btnSave.setText("Zapisz nowego użytkownika");
+        btnSave.setText("Zapisz pracownika");
         btnPasswordReset.setDisable(true);
 
         setDetailsDisabled(false);
