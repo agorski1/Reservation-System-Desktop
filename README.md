@@ -12,7 +12,7 @@ The system consists of three main parts:
 ### 🔗 Related Repositories
 
 * 🌐 Web (React) – *customer-facing application*  
-  👉 [React Repo](https://github.com/agorski1/Reservation-System-Web)
+  👉 [Reservation System Web](https://github.com/agorski1/Reservation-System-Web)
 
 * 🖥 Desktop (JavaFX) – *employee management system*  
   👉 [Reservation System Desktop](https://github.com/agorski1/Reservation-System-Desktop)
@@ -103,15 +103,69 @@ If needed, update the API base URL in the configuration files or service layer.
 
 ## 📡 Backend Integration
 
-The desktop app consumes REST endpoints such as:
+The desktop application communicates with the backend via REST API.
 
-* `/hd/auth/login`
-* `/hd/reservations`
-* `/hd/rooms`
-* `/hd/payments`
-* `/hd/reports`
+### 🔑 Authentication
 
-JWT token is stored and attached to each request after login.
+* `POST /auth/login`
+
+---
+
+### 📊 Dashboard
+
+* `GET /dashboard/today`
+
+---
+
+### 🛏 Reservations
+
+* `GET /reservations`
+* `GET /reservations/employee/{id}`
+* `POST /reservations/manual`
+* `PATCH /reservations/{reservationId}/status`
+
+---
+
+### 🛏 Rooms
+
+* `GET /rooms`
+* `GET /rooms/available?roomTypeId={id}&from={date}&to={date}`
+* `PATCH /rooms/{roomId}/status`
+
+---
+
+### 🧾 Room Types
+
+* `GET /room-type`
+* `GET /room-type/available`
+* `POST /room-type/price`
+
+---
+
+### 💳 Payments
+
+* `GET /payments/{reservationId}`
+
+---
+
+### 📈 Reports
+
+* `GET /reports/payments?start={date}&end={date}`
+* `GET /reports/occupancy?start={date}&end={date}`
+
+---
+
+### 👥 Users (Employees)
+
+* `GET /users/employees`
+* `POST /users/create/employee`
+* `POST /users/update`
+* `POST /users/password/change`
+
+---
+
+JWT token obtained during login is attached to all secured requests.
+
 
 ---
 
